@@ -1,3 +1,32 @@
+<?php
+    $projects = [
+        [
+            'name'      => 'Матрица в3',
+            'complete'  => '90',
+            'date'      => '25/06/2021'
+        ],
+        [
+            'name'      => 'Майндбокс доработка',
+            'complete'  => '50',
+            'date'      => '28/06/2021'
+        ],
+        [
+            'name'      => 'Ответ хранение в3',
+            'complete'  => '98',
+            'date'      => '12/07/2021'
+        ],
+        [
+            'name'      => 'РСД в2',
+            'complete'  => '10',
+            'date'      => '30/07/2021'
+        ],
+        [
+            'name'      => 'Внедрение БПК 3.0',
+            'complete'  => '60',
+            'date'      => '1/01/2022'
+        ]
+    ];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +56,15 @@
             <section>
                 <img src="images/vision-01.png" alt="Дэшборд отдела разработки Мечта">
                 <a href="team.php"><img src="images/team-01.png" alt="Дэшборд отдела разработки Мечта"></a>
-                <img src="images/projects-01.png" alt="Дэшборд отдела разработки Мечта">
+            </section>
+            <section class="projects">
+                <h2>Проекты</h2>
+                <?php foreach ($projects as $project): ?>
+                    <div class="projects-item">
+                        <div class="projects-item-name"><?= $project['name'] ?></div>
+                        <div class="projects-item-date"><?= $project['date'] ?></div>
+                    </div>
+                <?php endforeach; ?>
             </section>
         </main>
     </div>
