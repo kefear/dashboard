@@ -11,8 +11,7 @@
     <title>Дэшборд отдела разработки Мечта</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
-    <link href="css/normalize.min.css" rel="stylesheet" media="all">
-    <link href="css/theme-v1.css" rel="stylesheet" media="all">
+    <link href="css/theme-v1.min.css" rel="stylesheet" media="all">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
