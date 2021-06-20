@@ -12,13 +12,11 @@
     <!-- End Google Tag Manager (noscript) -->
     <div class="site-wrapper">
         <header>
-            <h1>Дэшборд отдела разработки Мечта</h1>
+            <a href="/dashboard"><h1>Дэшборд отдела разработки Мечта</h1></a>
         </header>
         <main>
             <section>
-                <img src="images/vision-01.png" alt="Дэшборд отдела разработки Мечта">
-                <a href="team.php"><img src="images/team-01.png" alt="Дэшборд отдела разработки Мечта"></a>
-                <img src="images/projects-01.png" alt="Дэшборд отдела разработки Мечта">
+                <img src="images/team-02.png" alt="Дэшборд отдела разработки Мечта">
             </section>
         </main>
     </div>
