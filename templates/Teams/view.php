@@ -22,10 +22,6 @@
                     <th><?= __('Parent Team') ?></th>
                     <td><?= $team->has('parent_team') ? $this->Html->link($team->parent_team->name, ['controller' => 'Teams', 'action' => 'view', $team->parent_team->id]) : '' ?></td>
                 </tr>
-                <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($team->id) ?></td>
-                </tr>
             </table>
             <div class="text">
                 <strong><?= __('Name') ?></strong>
