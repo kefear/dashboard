@@ -11,14 +11,14 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
+                    <th><?= $this->Paginator->sort('name') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($roles as $role): ?>
                 <tr>
-                    <td><?= $this->Number->format($role->id) ?></td>
+                    <td><?= $role->name ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $role->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $role->id]) ?>

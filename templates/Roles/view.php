@@ -17,12 +17,6 @@
     <div class="column-responsive column-80">
         <div class="roles view content">
             <h3><?= h($role->name) ?></h3>
-            <table>
-                <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($role->id) ?></td>
-                </tr>
-            </table>
             <div class="text">
                 <strong><?= __('Name') ?></strong>
                 <blockquote>
