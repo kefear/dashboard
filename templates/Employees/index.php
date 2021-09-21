@@ -16,8 +16,6 @@
                     <th><?= $this->Paginator->sort('team_id') ?></th>
                     <th><?= $this->Paginator->sort('role_id') ?></th>
                     <th><?= $this->Paginator->sort('report_id') ?></th>
-                    <th><?= $this->Paginator->sort('salary') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('status_id') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
@@ -29,9 +27,7 @@
                     <td><?= h($employee->dob) ?></td>
                     <td><?= $employee->has('team') ? $this->Html->link($employee->team->name, ['controller' => 'Teams', 'action' => 'view', $employee->team->id]) : '' ?></td>
                     <td><?= $employee->has('role') ? $this->Html->link($employee->role->name, ['controller' => 'Roles', 'action' => 'view', $employee->role->id]) : '' ?></td>
-                    <td><?= $this->Number->format($employee->report_id) ?></td>
-                    <td><?= $this->Number->format($employee->salary) ?></td>
-                    <td><?= h($employee->created) ?></td>
+                    <td><?= $employee->has('report_id') ? $this->Html->link($employee->report->name, ['controller' => 'Employees', 'action' => 'view', $employee->report->id]) : '' ?></td>
                     <td><?= $employee->has('status') ? $this->Html->link($employee->status->name, ['controller' => 'Statuses', 'action' => 'view', $employee->status->id]) : '' ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $employee->id]) ?>

@@ -31,10 +31,6 @@
                     <td><?= $employee->has('status') ? $this->Html->link($employee->status->name, ['controller' => 'Statuses', 'action' => 'view', $employee->status->id]) : '' ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($employee->id) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Report Id') ?></th>
                     <td><?= $this->Number->format($employee->report_id) ?></td>
                 </tr>
@@ -51,12 +47,6 @@
                     <td><?= h($employee->created) ?></td>
                 </tr>
             </table>
-            <div class="text">
-                <strong><?= __('Name') ?></strong>
-                <blockquote>
-                    <?= $this->Text->autoParagraph(h($employee->name)); ?>
-                </blockquote>
-            </div>
             <div class="text">
                 <strong><?= __('Email') ?></strong>
                 <blockquote>
