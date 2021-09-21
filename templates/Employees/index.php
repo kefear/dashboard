@@ -11,7 +11,7 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
+                    <th><?= $this->Paginator->sort('name') ?></th>
                     <th><?= $this->Paginator->sort('dob') ?></th>
                     <th><?= $this->Paginator->sort('team_id') ?></th>
                     <th><?= $this->Paginator->sort('role_id') ?></th>
@@ -25,7 +25,7 @@
             <tbody>
                 <?php foreach ($employees as $employee): ?>
                 <tr>
-                    <td><?= $this->Number->format($employee->id) ?></td>
+                    <td><?= $employee->name ?></td>
                     <td><?= h($employee->dob) ?></td>
                     <td><?= $employee->has('team') ? $this->Html->link($employee->team->name, ['controller' => 'Teams', 'action' => 'view', $employee->team->id]) : '' ?></td>
                     <td><?= $employee->has('role') ? $this->Html->link($employee->role->name, ['controller' => 'Roles', 'action' => 'view', $employee->role->id]) : '' ?></td>
