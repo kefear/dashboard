@@ -86,4 +86,9 @@ class UsersTable extends Table
 
         return $rules;
     }
+
+    public function findLogin($query, $options)
+    {
+        return $query;
+    }
 }
