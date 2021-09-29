@@ -56,6 +56,7 @@ class TeamsTable extends Table
             'className' => 'Teams',
             'foreignKey' => 'parent_id',
         ]);
+        $this->belongsTo('Departments');
     }
 
     /**

@@ -23,6 +23,7 @@
         </div>
         <div class="top-nav-links">
             <?= $this->Html->link(__('Employees'), ['controller' => 'employees', 'action' => 'index']) ?>
+            <?= $this->Html->link(__('Departments'), ['controller' => 'departments', 'action' => 'index']) ?>
             <?= $this->Html->link(__('Teams'), ['controller' => 'teams', 'action' => 'index']) ?>
             <?= $this->Html->link(__('Roles'), ['controller' => 'roles', 'action' => 'index']) ?>
             <?= $this->Html->link(__('Statuses'), ['controller' => 'statuses', 'action' => 'index']) ?>

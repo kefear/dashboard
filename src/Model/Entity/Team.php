@@ -29,11 +29,12 @@ class Team extends Entity
      * @var array
      */
     protected $_accessible = [
-        'name' => true,
-        'description' => true,
-        'parent_id' => true,
-        'parent_team' => true,
-        'employees' => true,
-        'child_teams' => true,
+        'name'              => true,
+        'description'       => true,
+        'parent_id'         => true,
+        'parent_team'       => true,
+        'employees'         => true,
+        'child_teams'       => true,
+        'department_id'     => true,
     ];
 }
