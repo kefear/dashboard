@@ -22,11 +22,12 @@
             <a href="<?= $this->Url->build('/') ?>"><span>Mechta.kz </span> Dashboard</a>
         </div>
         <div class="top-nav-links">
-            <?= $this->Html->link(__('Employees'), ['controller' => 'employees', 'action' => 'index']) ?>
-            <?= $this->Html->link(__('Departments'), ['controller' => 'departments', 'action' => 'index']) ?>
-            <?= $this->Html->link(__('Teams'), ['controller' => 'teams', 'action' => 'index']) ?>
-            <?= $this->Html->link(__('Roles'), ['controller' => 'roles', 'action' => 'index']) ?>
-            <?= $this->Html->link(__('Statuses'), ['controller' => 'statuses', 'action' => 'index']) ?>
+            <?= $this->Html->link(__('Employees'),      ['controller' => 'employees', 'action' => 'index']) ?>
+            <?= $this->Html->link(__('Departments'),    ['controller' => 'departments', 'action' => 'index']) ?>
+            <?= $this->Html->link(__('Teams'),          ['controller' => 'teams', 'action' => 'index']) ?>
+            <?= $this->Html->link(__('Roles'),          ['controller' => 'roles', 'action' => 'index']) ?>
+            <?= $this->Html->link(__('Statuses'),       ['controller' => 'statuses', 'action' => 'index']) ?>
+            <?= $this->Html->link(__('Users'),          ['controller' => 'users', 'action' => 'index']) ?>
         </div>
     </nav>
     <main class="main">
