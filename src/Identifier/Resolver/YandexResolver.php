@@ -37,8 +37,8 @@ class YandexResolver implements ResolverInterface
      * @var array
      */
     protected $_defaultConfig = [
-        'userModel' => 'Users',
-        'finder' => 'all',
+        'userModel'     => 'Users',
+        'finder'        => 'login',
     ];
 
     /**
@@ -48,7 +48,7 @@ class YandexResolver implements ResolverInterface
      */
     public function __construct(array $config = [])
     {
-        $this->setConfig($config);
+        $this->setConfig($this->_defaultConfig);
     }
 
     /**
@@ -57,27 +57,8 @@ class YandexResolver implements ResolverInterface
     public function find(array $conditions, $type = self::TYPE_AND)
     {
         $table = $this->getTableLocator()->get($this->_config['userModel']);
-
         $query = $table->query();
-        $finders = (array)$this->_config['finder'];
-        foreach ($finders as $finder => $options) {
-            if (is_string($options)) {
-                $query->find($options);
-            } else {
-                $query->find($finder, $options);
-            }
-        }
-
-        $where = [];
-        foreach ($conditions as $field => $value) {
-            $field = $table->aliasField($field);
-            if (is_array($value)) {
-                $field = $field . ' IN';
-            }
-            $where[$field] = $value;
-        }
-
-        $result = $query->where([$type => $where])->first();
+        $result = $query->find($this->_config['finder'], $conditions)->first();
         if (!empty($result)) {
             return $result;
         }

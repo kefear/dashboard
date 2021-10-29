@@ -179,8 +179,7 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
         $service->loadIdentifier('Authentication.Token', [
             'tokenField'    => 'token',
             'resolver' => [
-                'className' => 'Yandex',
-                'finder'    => 'login'
+                'className' => 'Yandex'
             ],
         ]);
 

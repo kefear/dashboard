@@ -119,10 +119,18 @@ class UsersController extends AppController
         }
         $this->viewBuilder()->setLayout('login');
         $result = $this->Authentication->getResult();
+        
         // If the user is logged in send them away.
         if ($result->isValid()) {
+            $this->request->getSession()->write(['Auth' => $this->Authentication->getIdentity()]);
             $target = $this->Authentication->getLoginRedirect() ?? '/';
             return $this->redirect($target);
         }
+    }
+
+    public function logout()
+    {
+        $this->Authentication->logout();
+        return $this->redirect("/");
     }
 }
