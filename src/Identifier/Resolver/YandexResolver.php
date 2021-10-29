@@ -86,7 +86,7 @@ class YandexResolver implements ResolverInterface
                 $user->y_client_id  = $response->getJson()['client_id'];
                 $user->token        = $conditions['token'];
                 $table->save($user);
-                return $query->where([$type => $where])->first();
+                return $user;
             }
             return false;
         }
