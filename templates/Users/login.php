@@ -3,6 +3,7 @@
 </div>
 <script type="text/javascript">
 window.addEventListener('DOMContentLoaded', function(event) {
-    window.location.href = window.location.origin + window.location.pathname + "?" + window.location.hash.slice(1)
+    if (window.location.hash != '')
+        window.location.href = window.location.origin + window.location.pathname + "?" + window.location.hash.slice(1)
 })
 </script>
