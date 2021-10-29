@@ -89,6 +89,6 @@ class UsersTable extends Table
 
     public function findLogin($query, $options)
     {
-        return $query;
+        return $query->where(['Users.token' => $options['token']]);
     }
 }
