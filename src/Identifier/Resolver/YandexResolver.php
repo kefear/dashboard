@@ -73,6 +73,8 @@ class YandexResolver implements ResolverInterface
         {
             $user = $table->find()->where(['Users.y_id' => $response->getJson()['id']])->first();
             if (!empty($user)) {
+                $user->token = $conditions['token'];
+                $table->save($user);
                 return $user;
             }
             if ($response->getJson()['login'] == 'yevgeniy.gavrilov@mechta.kz') 

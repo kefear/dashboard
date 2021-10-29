@@ -112,18 +112,18 @@ class UsersController extends AppController
 
     public function login()
     {
-        if ($this->request->getUri()->getHost() == 'localhost') {
-            $user = $this->Users->get(1);
-            $this->request->getSession()->write(['Auth' => $user]);
-            return $this->redirect("/");
-        }
+        // if ($this->request->getUri()->getHost() == 'localhost') {
+        //     $user = $this->Users->get(1);
+        //     $this->request->getSession()->write(['Auth' => $user]);
+        //     return $this->redirect("/");
+        // }
         $this->viewBuilder()->setLayout('login');
         $result = $this->Authentication->getResult();
         
         // If the user is logged in send them away.
         if ($result->isValid()) {
             $this->request->getSession()->write(['Auth' => $this->Authentication->getIdentity()]);
-            $target = $this->Authentication->getLoginRedirect() ?? '/';
+            $target = '/';
             return $this->redirect($target);
         }
     }
