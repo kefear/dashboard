@@ -41,12 +41,6 @@
                     <?= $this->Text->autoParagraph(h($user->phone)); ?>
                 </blockquote>
             </div>
-            <div class="text">
-                <strong><?= __('Token') ?></strong>
-                <blockquote>
-                    <?= $this->Text->autoParagraph(h($user->token)); ?>
-                </blockquote>
-            </div>
         </div>
     </div>
 </div>
