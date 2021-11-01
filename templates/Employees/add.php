@@ -26,7 +26,7 @@
                     echo $this->Form->control('phone');
                     echo $this->Form->control('team_id', ['options' => $teams, 'empty' => true]);
                     echo $this->Form->control('role_id', ['options' => $roles, 'empty' => true]);
-                    echo $this->Form->control('report_id');
+                    echo $this->Form->control('report_id', ['empty' => true]);
                     echo $this->Form->control('salary');
                     echo $this->Form->control('status_id', ['options' => $statuses]);
                 ?>
