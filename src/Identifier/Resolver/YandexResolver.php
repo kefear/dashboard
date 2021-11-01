@@ -56,8 +56,8 @@ class YandexResolver implements ResolverInterface
      */
     public function find(array $conditions, $type = self::TYPE_AND)
     {
-        $table = $this->getTableLocator()->get($this->_config['userModel']);
-        $query = $table->query();
+        $users_table = $this->getTableLocator()->get($this->_config['userModel']);
+        $query = $users_table->query();
         $result = $query->find($this->_config['finder'], $conditions)->first();
         if (!empty($result)) {
             return $result;
@@ -71,21 +71,25 @@ class YandexResolver implements ResolverInterface
         // if yandex is not error, create new user 
         if ($response->isOk()) 
         {
-            $user = $table->find()->where(['Users.y_id' => $response->getJson()['id']])->first();
+            //  сценарий, когда пользователь уже есть в системе и нужно просто залогинить и обновить токен
+            $user = $users_table->find()->where(['Users.y_id' => $response->getJson()['id']])->first();
             if (!empty($user)) {
                 $user->token = $conditions['token'];
-                $table->save($user);
+                $users_table->save($user);
                 return $user;
             }
-            if ($response->getJson()['login'] == 'yevgeniy.gavrilov@mechta.kz') 
+            //  сценарий, когда пользователя нет в системе, но есть сотрудник с таким же имейлом
+            $employees_table = $this->getTableLocator()->get('Employees');
+            $employee = $employees_table->find()->where(['Employees.email' => $response->getJson()])->first();
+            if (!empty($employee)) 
             {
-                $user               = $table->newEmptyEntity();
+                $user               = $users_table->newEmptyEntity();
                 $user->name         = $response->getJson()['real_name'];
                 $user->email        = $response->getJson()['login'];
                 $user->y_id         = $response->getJson()['id'];
                 $user->y_client_id  = $response->getJson()['client_id'];
                 $user->token        = $conditions['token'];
-                $table->save($user);
+                $users_table->save($user);
                 return $user;
             }
             return false;
