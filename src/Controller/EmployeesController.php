@@ -59,9 +59,9 @@ class EmployeesController extends AppController
             }
             $this->Flash->error(__('The employee could not be saved. Please, try again.'));
         }
-        $teams = $this->Employees->Teams->find('list', ['limit' => 200]);
-        $roles = $this->Employees->Roles->find('list', ['limit' => 200]);
-        $reports = $this->Employees->Reports->find('list', ['limit' => 200]);
+        $teams = $this->Employees->Teams->find('list')->order(['name' => 'ASC']);
+        $roles = $this->Employees->Roles->find('list', ['limit' => 200, 'order' => ['Roles.name' => 'ASC']]);
+        $reports = $this->Employees->Reports->find('list', ['limit' => 200, 'order' => ['Reports.name' => 'ASC']]);
         $statuses = $this->Employees->Statuses->find('list', ['limit' => 200]);
         $this->set(compact('employee', 'teams', 'roles', 'reports', 'statuses'));
     }
@@ -87,9 +87,9 @@ class EmployeesController extends AppController
             }
             $this->Flash->error(__('The employee could not be saved. Please, try again.'));
         }
-        $teams = $this->Employees->Teams->find('list', ['limit' => 200]);
-        $roles = $this->Employees->Roles->find('list', ['limit' => 200]);
-        $reports = $this->Employees->Reports->find('list', ['limit' => 200]);
+        $teams = $this->Employees->Teams->find('list')->order(['name' => 'ASC']);
+        $roles = $this->Employees->Roles->find('list', ['limit' => 200, 'order' => ['Roles.name' => 'ASC']]);
+        $reports = $this->Employees->Reports->find('list', ['limit' => 200])->order(['first_name' => 'ASC']);
         $statuses = $this->Employees->Statuses->find('list', ['limit' => 200]);
         $this->set(compact('employee', 'teams', 'roles', 'reports', 'statuses'));
     }
