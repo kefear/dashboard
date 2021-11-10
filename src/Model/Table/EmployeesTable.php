@@ -46,7 +46,7 @@ class EmployeesTable extends Table
         parent::initialize($config);
 
         $this->setTable('employees');
-        $this->setDisplayField('name');
+        $this->setDisplayField('full_name');
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
@@ -83,9 +83,14 @@ class EmployeesTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('name')
-            ->requirePresence('name', 'create')
-            ->notEmptyString('name');
+            ->scalar('first_name')
+            ->requirePresence('first_name', 'create')
+            ->notEmptyString('first_name');
+        
+        $validator
+            ->scalar('last_name')
+            ->requirePresence('last_name', 'create')
+            ->notEmptyString('last_name');
 
         $validator
             ->date('dob')

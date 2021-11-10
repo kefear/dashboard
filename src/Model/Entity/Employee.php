@@ -38,20 +38,26 @@ class Employee extends Entity
      * @var array
      */
     protected $_accessible = [
-        'name' => true,
-        'dob' => true,
-        'email' => true,
-        'phone' => true,
-        'team_id' => true,
-        'role_id' => true,
-        'report_id' => true,
-        'salary' => true,
-        'created' => true,
-        'status_id' => true,
-        'team' => true,
-        'role' => true,
-        'report' => true,
-        'status' => true,
-        'status_changes' => true,
+        'first_name'        => true,
+        'last_name'         => true,
+        'dob'               => true,
+        'email'             => true,
+        'phone'             => true,
+        'team_id'           => true,
+        'role_id'           => true,
+        'report_id'         => true,
+        'salary'            => true,
+        'created'           => true,
+        'status_id'         => true,
+        'team'              => true,
+        'role'              => true,
+        'report'            => true,
+        'status'            => true,
+        'status_changes'    => true,
     ];
+
+    public function _getName()
+    {
+        return $this->first_name . " " . $this->last_name;
+    }
 }
