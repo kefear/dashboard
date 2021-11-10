@@ -61,7 +61,7 @@ class EmployeesController extends AppController
         }
         $teams = $this->Employees->Teams->find('list')->order(['name' => 'ASC']);
         $roles = $this->Employees->Roles->find('list', ['limit' => 200, 'order' => ['Roles.name' => 'ASC']]);
-        $reports = $this->Employees->Reports->find('list', ['limit' => 200, 'order' => ['Reports.name' => 'ASC']]);
+        $reports = $this->Employees->Reports->find('list', ['limit' => 200])->order(['first_name' => 'ASC']);
         $statuses = $this->Employees->Statuses->find('list', ['limit' => 200]);
         $this->set(compact('employee', 'teams', 'roles', 'reports', 'statuses'));
     }
