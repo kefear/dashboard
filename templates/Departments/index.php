@@ -5,7 +5,10 @@
  */
 ?>
 <div class="departments index content">
-    <?= $this->Html->link(__('New Department'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <div class="float-right button-wrapper">
+        <?= $this->Html->link(__('New Department'), ['action' => 'add'], ['class' => 'button button-outline']) ?>
+        <?= $this->Html->link(__('Display structure'), ['action' => 'structure'], ['class' => 'button button-outline']) ?>
+    </div>
     <h3><?= __('Departments') ?></h3>
     <div class="table-responsive">
         <table>

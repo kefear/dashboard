@@ -102,4 +102,16 @@ class DepartmentsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function structure()
+    {
+        $structure = $this->Departments
+            ->find('all')
+            ->contain(['Teams.Employees' => function ($query) {
+                return $query->order(['Employees.first_name' => 'ASC'])->contain(['Roles']);
+            }])
+            ->toArray();
+            
+        $this->set(compact('structure'));
+    }
 }
