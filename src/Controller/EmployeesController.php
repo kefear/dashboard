@@ -19,7 +19,8 @@ class EmployeesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Teams', 'Roles', 'Reports', 'Statuses'],
+            'contain'   => ['Teams', 'Roles', 'Reports', 'Statuses'],
+            'limit'     => 100
         ];
         $employees = $this->paginate($this->Employees);
 
