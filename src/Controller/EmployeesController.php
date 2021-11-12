@@ -20,7 +20,8 @@ class EmployeesController extends AppController
     {
         $this->paginate = [
             'contain'   => ['Teams', 'Roles', 'Reports', 'Statuses'],
-            'limit'     => 100
+            'limit'     => 100,
+            'order'     => ['Employees.first_name' => 'ASC']
         ];
         $employees = $this->paginate($this->Employees);
 

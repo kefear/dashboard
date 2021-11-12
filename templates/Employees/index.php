@@ -6,7 +6,7 @@
 ?>
 <div class="employees index content">
     <?= $this->Html->link(__('New Employee'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Employees') ?></h3>
+    <h3><?= __('Employees') ?>: <?= $this->Paginator->counter('{{count}}') ?></h3>
     <div class="table-responsive">
         <table>
             <thead>
