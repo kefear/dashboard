@@ -15,13 +15,13 @@
                     <?php if (!empty($department->teams)) :?>
                         <ul>
                             <?php foreach ($department->teams as $team) :?>
-                                <li><?= $team->name ?></li>
+                                <li><?= $team->name ?>: <?= count($team->employees) ?></li>
                                 <?php if (!empty($team->employees)) :?>
-                                    <ul>
+                                    <ol>
                                         <?php foreach($team->employees as $employee) :?>
                                             <li><?= $employee->name ?> — <?= $employee->role->name ?></li>
                                         <?php endforeach;?>
-                                    </ul>
+                                    </ol>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </ul>
