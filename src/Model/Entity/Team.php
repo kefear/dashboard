@@ -36,5 +36,6 @@ class Team extends Entity
         'employees'         => true,
         'child_teams'       => true,
         'department_id'     => true,
+        'manager_id'        => true,
     ];
 }

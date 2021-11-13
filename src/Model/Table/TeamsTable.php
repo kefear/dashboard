@@ -46,17 +46,21 @@ class TeamsTable extends Table
         $this->setPrimaryKey('id');
 
         $this->belongsTo('ParentTeams', [
-            'className' => 'Teams',
-            'foreignKey' => 'parent_id',
+            'className'     => 'Teams',
+            'foreignKey'    => 'parent_id',
         ]);
         $this->hasMany('Employees', [
-            'foreignKey' => 'team_id',
+            'foreignKey'    => 'team_id',
         ]);
         $this->hasMany('ChildTeams', [
-            'className' => 'Teams',
-            'foreignKey' => 'parent_id',
+            'className'     => 'Teams',
+            'foreignKey'    => 'parent_id',
         ]);
         $this->belongsTo('Departments');
+        $this->belongsTo('Managers', [
+            'className'     => 'Employees',
+            'foreignKey'    => 'manager_id'
+        ]);
     }
 
     /**

@@ -19,7 +19,8 @@ class TeamsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['ParentTeams', 'Departments'],
+            'contain'   => ['ParentTeams', 'Departments', 'Managers'],
+            'order'     => ['Teams.name' => 'ASC']
         ];
         $teams = $this->paginate($this->Teams);
 
@@ -59,9 +60,10 @@ class TeamsController extends AppController
             }
             $this->Flash->error(__('The team could not be saved. Please, try again.'));
         }
-        $parentTeams = $this->Teams->ParentTeams->find('list', ['limit' => 200]);
-        $departments = $this->Teams->Departments->find('list', ['limit' => 200]);
-        $this->set(compact('team', 'departments', 'parentTeams'));
+        $parentTeams = $this->Teams->ParentTeams->find('list');
+        $departments = $this->Teams->Departments->find('list');
+        $managers = $this->Teams->Managers->find('list');
+        $this->set(compact('team', 'departments', 'parentTeams', 'managers'));
     }
 
     /**
@@ -85,9 +87,10 @@ class TeamsController extends AppController
             }
             $this->Flash->error(__('The team could not be saved. Please, try again.'));
         }
-        $parentTeams = $this->Teams->ParentTeams->find('list', ['limit' => 200]);
-        $departments = $this->Teams->Departments->find('list', ['limit' => 200]);
-        $this->set(compact('team', 'departments', 'parentTeams'));
+        $parentTeams = $this->Teams->ParentTeams->find('list')->order(['name' => 'ASC']);
+        $departments = $this->Teams->Departments->find('list')->order(['name' => 'ASC']);
+        $managers = $this->Teams->Managers->find('list')->order(['first_name' => 'ASC']);
+        $this->set(compact('team', 'departments', 'parentTeams', 'managers'));
     }
 
     /**

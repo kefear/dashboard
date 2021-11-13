@@ -12,8 +12,9 @@
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('name') ?></th>
-                    <th><?= $this->Paginator->sort('parent_id') ?></th>
+                    <th><?= $this->Paginator->sort('manager_id') ?></th>
                     <th><?= $this->Paginator->sort('department_id') ?></th>
+                    <th><?= $this->Paginator->sort('parent_id') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -21,6 +22,7 @@
                 <?php foreach ($teams as $team): ?>
                 <tr>
                     <td><?= $team->name ?></td>
+                    <td><?= $team->has('manager') ? $team->manager->name : '' ?></td>
                     <td><?= $team->department->name ?></td>
                     <td><?= $team->has('parent_team') ? $this->Html->link($team->parent_team->name, ['controller' => 'Teams', 'action' => 'view', $team->parent_team->id]) : '' ?></td>
                     <td class="actions">
