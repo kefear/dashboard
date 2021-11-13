@@ -60,9 +60,9 @@ class TeamsController extends AppController
             }
             $this->Flash->error(__('The team could not be saved. Please, try again.'));
         }
-        $parentTeams = $this->Teams->ParentTeams->find('list');
-        $departments = $this->Teams->Departments->find('list');
-        $managers = $this->Teams->Managers->find('list');
+        $parentTeams = $this->Teams->ParentTeams->find('list')->order(['name' => 'ASC']);
+        $departments = $this->Teams->Departments->find('list')->order(['name' => 'ASC']);
+        $managers = $this->Teams->Managers->find('list')->order(['first_name' => 'ASC']);
         $this->set(compact('team', 'departments', 'parentTeams', 'managers'));
     }
 

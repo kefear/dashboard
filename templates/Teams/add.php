@@ -21,7 +21,8 @@
                     echo $this->Form->control('name');
                     echo $this->Form->control('description');
                     echo $this->Form->control('parent_id', ['options' => $parentTeams, 'empty' => true]);
-                    echo $this->Form->control('department_id', ['options' => $departments]);
+                    echo $this->Form->control('department_id', ['options' => $departments, 'empty' => true]);
+                    echo $this->Form->control('manager_id', ['options' => $managers, 'empty' => true]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
