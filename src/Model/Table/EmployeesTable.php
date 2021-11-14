@@ -127,4 +127,14 @@ class EmployeesTable extends Table
 
         return $rules;
     }
+
+    public function findVacancies($query, $options)
+    {
+        return $query->where(['Employees.status_id' => 5]);
+    }
+
+    public function findCandidates($query, $options)
+    {
+        return $query->where(['Employees.status_id' => 3]);
+    }
 }

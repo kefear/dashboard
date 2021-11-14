@@ -5,8 +5,12 @@
  */
 ?>
 <div class="employees index content">
-    <?= $this->Html->link(__('New Employee'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3><?= __('Employees') ?>: <?= $this->Paginator->counter('{{count}}') ?></h3>
+    <?= $this->Html->link(__('New Employee'), ['action' => 'add'], ['class' => 'button button-outline float-right']) ?>
+    <div class="button-wrapper">
+        <?= $this->Html->link(__('Candidates'), ['action' => 'index', 'candidates'], ['class' => 'button button-clear']) ?>
+        <?= $this->Html->link(__('Vacancies'), ['action' => 'index', 'vacancies'], ['class' => 'button button-clear']) ?>
+    </div>
     <div class="table-responsive">
         <table>
             <thead>

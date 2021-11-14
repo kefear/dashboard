@@ -16,14 +16,14 @@ class EmployeesController extends AppController
      *
      * @return \Cake\Http\Response|null|void Renders view
      */
-    public function index()
+    public function index($finder = 'all')
     {
         $this->paginate = [
             'contain'   => ['Teams', 'Roles', 'Reports', 'Statuses'],
             'limit'     => 100,
             'order'     => ['Employees.first_name' => 'ASC']
         ];
-        $employees = $this->paginate($this->Employees);
+        $employees = $this->paginate($this->Employees->find($finder));
 
         $this->set(compact('employees'));
     }
