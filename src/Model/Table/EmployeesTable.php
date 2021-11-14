@@ -137,4 +137,9 @@ class EmployeesTable extends Table
     {
         return $query->where(['Employees.status_id' => 3]);
     }
+    
+    public function findEmployed($query, $options)
+    {
+        return $query->where(['Employees.status_id' => 1]);
+    }
 }

@@ -10,6 +10,7 @@
         <?= $this->Html->link(__('New Employee'), ['action' => 'add'], ['class' => 'button button-outline']) ?>
         <?= $this->Html->link(__('Candidates'), ['action' => 'index', 'candidates'], ['class' => 'button button-clear']) ?>
         <?= $this->Html->link(__('Vacancies'), ['action' => 'index', 'vacancies'], ['class' => 'button button-clear']) ?>
+        <?= $this->Html->link(__('Employed'), ['action' => 'index', 'employed'], ['class' => 'button button-clear']) ?>
     </div>
     <div class="table-responsive">
         <table>
