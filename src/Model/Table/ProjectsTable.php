@@ -50,7 +50,8 @@ class ProjectsTable extends Table
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Managers', [
-            'foreignKey' => 'manager_id',
+            'className'     => 'Employees',
+            'foreignKey'    => 'manager_id',
         ]);
         $this->belongsTo('Teams', [
             'foreignKey' => 'team_id',
