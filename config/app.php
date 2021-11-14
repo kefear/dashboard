@@ -417,7 +417,7 @@ return [
      */
     'Session' => [
         'defaults'                  => 'database',
-        'timeout'                   => 0,
-        'session.cookie_lifetime'   => 0
+        'timeout'                   => 525600,
+        'session.cookie_lifetime'   => 525600
     ],
 ];
