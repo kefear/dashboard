@@ -59,8 +59,8 @@ class ProjectsController extends AppController
             }
             $this->Flash->error(__('The project could not be saved. Please, try again.'));
         }
-        $managers = $this->Projects->Managers->find('list', ['limit' => 200]);
-        $teams = $this->Projects->Teams->find('list', ['limit' => 200]);
+        $managers = $this->Projects->Managers->find('list')->find('employed')->order(['first_name' => 'ASC']);
+        $teams = $this->Projects->Teams->find('list')->order(['name' => 'ASC']);
         $this->set(compact('project', 'managers', 'teams'));
     }
 
@@ -85,8 +85,8 @@ class ProjectsController extends AppController
             }
             $this->Flash->error(__('The project could not be saved. Please, try again.'));
         }
-        $managers = $this->Projects->Managers->find('list', ['limit' => 200]);
-        $teams = $this->Projects->Teams->find('list', ['limit' => 200]);
+        $managers = $this->Projects->Managers->find('list')->find('employed')->order(['first_name' => 'ASC']);
+        $teams = $this->Projects->Teams->find('list')->order(['name' => 'ASC']);
         $this->set(compact('project', 'managers', 'teams'));
     }
 

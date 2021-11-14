@@ -140,6 +140,6 @@ class EmployeesTable extends Table
     
     public function findEmployed($query, $options)
     {
-        return $query->where(['Employees.status_id' => 1]);
+        return $query->where([$this->getAlias() . '.status_id' => 1]);
     }
 }

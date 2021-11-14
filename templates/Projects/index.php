@@ -11,8 +11,7 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
+                    <th><?= $this->Paginator->sort('name') ?></th>
                     <th><?= $this->Paginator->sort('manager_id') ?></th>
                     <th><?= $this->Paginator->sort('team_id') ?></th>
                     <th><?= $this->Paginator->sort('tasks_total') ?></th>
@@ -25,10 +24,9 @@
             <tbody>
                 <?php foreach ($projects as $project): ?>
                 <tr>
-                    <td><?= $this->Number->format($project->id) ?></td>
-                    <td><?= h($project->created) ?></td>
-                    <td><?= $this->Number->format($project->manager_id) ?></td>
-                    <td><?= $project->has('team') ? $this->Html->link($project->team->name, ['controller' => 'Teams', 'action' => 'view', $project->team->id]) : '' ?></td>
+                    <td><?= h($project->name) ?></td>
+                    <td><?= $project->has('manager') ? $project->manager->name : __('Not assigned') ?></td>
+                    <td><?= $project->has('team') ? $this->Html->link($project->team->name, ['controller' => 'Teams', 'action' => 'view', $project->team->id]) : __('Not assigned') ?></td>
                     <td><?= $this->Number->format($project->tasks_total) ?></td>
                     <td><?= $this->Number->format($project->tasks_done) ?></td>
                     <td><?= h($project->date_due) ?></td>

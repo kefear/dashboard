@@ -23,12 +23,8 @@
                     <td><?= $project->has('team') ? $this->Html->link($project->team->name, ['controller' => 'Teams', 'action' => 'view', $project->team->id]) : '' ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($project->id) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Manager Id') ?></th>
-                    <td><?= $this->Number->format($project->manager_id) ?></td>
+                    <th><?= __('Manager') ?></th>
+                    <td><?= $project->has('manager') ? $project->manager->name : __('Not assigned') ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Tasks Total') ?></th>

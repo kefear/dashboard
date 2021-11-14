@@ -20,7 +20,7 @@
                 <?php
                     echo $this->Form->control('name');
                     echo $this->Form->control('description');
-                    echo $this->Form->control('manager_id');
+                    echo $this->Form->control('manager_id', ['empty' => true]);
                     echo $this->Form->control('team_id', ['options' => $teams, 'empty' => true]);
                     echo $this->Form->control('tasks_total');
                     echo $this->Form->control('tasks_done');
