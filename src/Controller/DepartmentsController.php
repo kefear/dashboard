@@ -60,7 +60,7 @@ class DepartmentsController extends AppController
             }
             $this->Flash->error(__('The department could not be saved. Please, try again.'));
         }
-        $managers = $this->Departments->Managers->find('list')->order(['first_name' => 'ASC']);
+        $managers = $this->Departments->Managers->find('list')->find('employed')->order(['first_name' => 'ASC']);
         $this->set(compact('department', 'managers'));
     }
 
@@ -85,7 +85,7 @@ class DepartmentsController extends AppController
             }
             $this->Flash->error(__('The department could not be saved. Please, try again.'));
         }
-        $managers = $this->Departments->Managers->find('list')->order(['first_name' => 'ASC']);
+        $managers = $this->Departments->Managers->find('list')->find('employed')->order(['first_name' => 'ASC']);
         $this->set(compact('department', 'managers'));
     }
 

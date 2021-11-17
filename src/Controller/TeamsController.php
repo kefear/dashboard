@@ -62,7 +62,7 @@ class TeamsController extends AppController
         }
         $parentTeams = $this->Teams->ParentTeams->find('list')->order(['name' => 'ASC']);
         $departments = $this->Teams->Departments->find('list')->order(['name' => 'ASC']);
-        $managers = $this->Teams->Managers->find('list')->order(['first_name' => 'ASC']);
+        $managers = $this->Teams->Managers->find('list')->find('employed')->order(['first_name' => 'ASC']);
         $this->set(compact('team', 'departments', 'parentTeams', 'managers'));
     }
 
@@ -89,7 +89,7 @@ class TeamsController extends AppController
         }
         $parentTeams = $this->Teams->ParentTeams->find('list')->order(['name' => 'ASC']);
         $departments = $this->Teams->Departments->find('list')->order(['name' => 'ASC']);
-        $managers = $this->Teams->Managers->find('list')->order(['first_name' => 'ASC']);
+        $managers = $this->Teams->Managers->find('list')->find('employed')->order(['first_name' => 'ASC']);
         $this->set(compact('team', 'departments', 'parentTeams', 'managers'));
     }
 
