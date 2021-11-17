@@ -13,7 +13,7 @@
                 <?php foreach ($structure as $department) :?>
                     <li><?= $department->name ?>
                         <?php if ($department->has('manager')) :?>
-                            </br><?= __('Manager') ?>: <?= $department->manager->name ?>
+                            &nbsp;(<?= __('Manager') ?>: <?= $department->manager->name ?>)
                         <?php endif; ?> 
                     </li>
                     <?php if (!empty($department->teams)) :?>
@@ -21,7 +21,7 @@
                             <?php foreach ($department->teams as $team) :?>
                                 <li><?= $team->name ?>: <?= count($team->employees) ?>
                                     <?php if ($team->has('manager')) :?>
-                                        </br><?= __('Manager') ?>: <?= $team->manager->name ?>
+                                        &nbsp;(<?= __('Manager') ?>: <?= $team->manager->name ?>)
                                     <?php endif; ?> 
                                 </li>
                                 <?php if (!empty($team->employees)) :?>
