@@ -19,7 +19,8 @@ class ProjectsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Managers', 'Teams'],
+            'contain'   => ['Managers', 'Teams'],
+            'order'     => ['name' => 'ASC']
         ];
         $projects = $this->paginate($this->Projects);
 

@@ -18,6 +18,9 @@ class RolesController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'order'     => ['name' => 'ASC']
+        ];
         $roles = $this->paginate($this->Roles);
 
         $this->set(compact('roles'));
