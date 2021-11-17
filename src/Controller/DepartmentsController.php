@@ -19,6 +19,7 @@ class DepartmentsController extends AppController
     public function index()
     {
         $this->paginate = [
+            'contain'   => ['Managers'],
             'order'     => ['name' => 'ASC']
         ];
         $departments = $this->paginate($this->Departments);
@@ -59,7 +60,8 @@ class DepartmentsController extends AppController
             }
             $this->Flash->error(__('The department could not be saved. Please, try again.'));
         }
-        $this->set(compact('department'));
+        $managers = $this->Departments->Managers->find('list')->order(['first_name' => 'ASC']);
+        $this->set(compact('department', 'managers'));
     }
 
     /**
@@ -83,7 +85,8 @@ class DepartmentsController extends AppController
             }
             $this->Flash->error(__('The department could not be saved. Please, try again.'));
         }
-        $this->set(compact('department'));
+        $managers = $this->Departments->Managers->find('list')->order(['first_name' => 'ASC']);
+        $this->set(compact('department', 'managers'));
     }
 
     /**

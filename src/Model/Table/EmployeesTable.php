@@ -68,6 +68,12 @@ class EmployeesTable extends Table
         $this->hasMany('StatusChanges', [
             'foreignKey' => 'employee_id',
         ]);
+        $this->hasMany('ManagedTeams', [
+            'foreignKey' => 'manager_id',
+        ]);
+        $this->hasMany('ManagedDepartments', [
+            'foreignKey' => 'manager_id',
+        ]);
     }
 
     /**

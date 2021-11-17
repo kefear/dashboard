@@ -46,6 +46,10 @@ class DepartmentsTable extends Table
         $this->hasMany('Teams', [
             'foreignKey' => 'department_id',
         ]);
+        $this->belongsTo('Managers', [
+            'className'     => 'Employees',
+            'foreignKey'    => 'manager_id'
+        ]);
     }
 
     /**

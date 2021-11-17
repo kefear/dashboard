@@ -19,6 +19,7 @@
                 <?php
                     echo $this->Form->control('name');
                     echo $this->Form->control('description');
+                    echo $this->Form->control('manager_id', ['options' => $managers, 'empty' => true]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>

@@ -14,6 +14,7 @@
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('name') ?></th>
+                    <th><?= $this->Paginator->sort('manager') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -21,6 +22,7 @@
                 <?php foreach ($departments as $department): ?>
                 <tr>
                     <td><?= $department->name ?></td>
+                    <td><?= $department->has('manager') ? $department->manager->name : '' ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $department->id]) ?>
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $department->id]) ?>
