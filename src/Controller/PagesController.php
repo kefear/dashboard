@@ -23,6 +23,7 @@ use Cake\Http\Response;
 use Cake\View\Exception\MissingTemplateException;
 use Cake\Utility\Hash;
 
+use Cake\ORM\Locator\LocatorAwareTrait;
 
 /**
  * Static content controller
@@ -33,6 +34,8 @@ use Cake\Utility\Hash;
  */
 class PagesController extends AppController
 {
+    use LocatorAwareTrait;
+
     public function index()
     {
         $this->Employees = $this->loadModel('Employees');
@@ -41,5 +44,12 @@ class PagesController extends AppController
             ->toArray();
         $employees = Hash::combine($employees, '{n}.id', '{n}', '{n}.status.name');
         $this->set(compact('employees'));
+    }
+
+    public function test()
+    {
+        $this->Employees = $this->getTableLocator()->get('Employees');
+        debug($this->Employees);
+        die();
     }
 }

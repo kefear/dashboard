@@ -113,8 +113,8 @@ class DepartmentsController extends AppController
     {
         $structure = $this->Departments
             ->find('all')
-            ->contain(['Teams.Employees' => function ($query) {
-                return $query->order(['Employees.first_name' => 'ASC'])->contain(['Roles']);
+            ->contain(['Managers', 'Teams.Managers', 'Teams.Employees' => function ($query) {
+                return $query->order(['Employees.first_name' => 'ASC'])->contain(['Roles'])->find('employed');
             }])
             ->toArray();
             

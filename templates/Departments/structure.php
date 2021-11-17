@@ -11,11 +11,19 @@
             <h3><?= __('Structure') ?></h3>
             <ul>
                 <?php foreach ($structure as $department) :?>
-                    <li><?= $department->name ?></li>
+                    <li><?= $department->name ?>
+                        <?php if ($department->has('manager')) :?>
+                            </br><?= __('Manager') ?>: <?= $department->manager->name ?>
+                        <?php endif; ?> 
+                    </li>
                     <?php if (!empty($department->teams)) :?>
                         <ul>
                             <?php foreach ($department->teams as $team) :?>
-                                <li><?= $team->name ?>: <?= count($team->employees) ?></li>
+                                <li><?= $team->name ?>: <?= count($team->employees) ?>
+                                    <?php if ($team->has('manager')) :?>
+                                        </br><?= __('Manager') ?>: <?= $team->manager->name ?>
+                                    <?php endif; ?> 
+                                </li>
                                 <?php if (!empty($team->employees)) :?>
                                     <ol>
                                         <?php foreach($team->employees as $employee) :?>
