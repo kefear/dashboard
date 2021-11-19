@@ -21,7 +21,6 @@ use Cake\Http\Exception\ForbiddenException;
 use Cake\Http\Exception\NotFoundException;
 use Cake\Http\Response;
 use Cake\View\Exception\MissingTemplateException;
-use Cake\Utility\Hash;
 
 use Cake\ORM\Locator\LocatorAwareTrait;
 
@@ -38,12 +37,9 @@ class PagesController extends AppController
 
     public function index()
     {
-        $this->Employees = $this->loadModel('Employees');
-        $employees = $this->Employees->find()
-            ->contain(['Statuses'])
-            ->toArray();
-        $employees = Hash::combine($employees, '{n}.id', '{n}', '{n}.status.name');
-        $this->set(compact('employees'));
+        $this->Statuses = $this->loadModel('Statuses');
+        $statuses = $this->Statuses->find()->order(['name' => 'asc'])->contain(['Employees'])->toArray();
+        $this->set(compact('statuses'));
     }
 
     public function test()

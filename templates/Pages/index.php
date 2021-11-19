@@ -4,11 +4,13 @@
     </div>
     <h3><?= __('Employees') ?></h3>
     <table class='table table-responsive'>
-        <?php foreach ($employees as $status => $employee) :?>
-            <tr>
-                <td><?= $status ?></td>
-                <td><?= count($employee) ?></td>
-            </tr>
+        <?php foreach ($statuses as $status) :?>
+            <?php if (count($status->employees) > 0) :?>
+                <tr>
+                    <td><?= $status->name ?></td>
+                    <td><?= count($status->employees) ?></td>
+                </tr>
+            <?php endif; ?>
         <?php endforeach; ?>
     </table>
 </div>
