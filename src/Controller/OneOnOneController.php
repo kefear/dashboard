@@ -59,8 +59,8 @@ class OneOnOneController extends AppController
             }
             $this->Flash->error(__('The one on one could not be saved. Please, try again.'));
         }
-        $employees = $this->OneOnOne->Employees->find('list', ['limit' => 200]);
-        $managers = $this->OneOnOne->Managers->find('list', ['limit' => 200]);
+        $employees = $this->OneOnOne->Employees->find('list')->find('employed')->order(['first_name' => 'asc']);
+        $managers = $this->OneOnOne->Managers->find('list')->find('employed')->order(['first_name' => 'asc']);
         $this->set(compact('oneOnOne', 'employees', 'managers'));
     }
 
@@ -85,8 +85,8 @@ class OneOnOneController extends AppController
             }
             $this->Flash->error(__('The one on one could not be saved. Please, try again.'));
         }
-        $employees = $this->OneOnOne->Employees->find('list', ['limit' => 200]);
-        $managers = $this->OneOnOne->Managers->find('list', ['limit' => 200]);
+        $employees = $this->OneOnOne->Employees->find('list')->find('employed')->order(['first_name' => 'asc']);
+        $managers = $this->OneOnOne->Managers->find('list')->find('employed')->order(['first_name' => 'asc']);
         $this->set(compact('oneOnOne', 'employees', 'managers'));
     }
 

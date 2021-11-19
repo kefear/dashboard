@@ -53,8 +53,9 @@ class OneOnOneTable extends Table
             'joinType' => 'INNER',
         ]);
         $this->belongsTo('Managers', [
-            'foreignKey' => 'manager_id',
-            'joinType' => 'INNER',
+            'className'     => 'Employees',
+            'foreignKey'    => 'manager_id',
+            'joinType'      => 'INNER',
         ]);
     }
 
