@@ -9,7 +9,7 @@
     <link id="favicon" rel="icon"
         href="data:image/svg+xml,
         <svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>
-            <text y=%22.9em%22 font-size=%2290%22>🤖</text>
+            <text y=%22.9em%22 font-size=%2290%22>📈</text>
         </svg>"
         type="image/png" 
         sizes="16x16 24x24 32x32 48x48 64x64">
