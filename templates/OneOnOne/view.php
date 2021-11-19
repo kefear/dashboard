@@ -23,24 +23,16 @@
                     <td><?= $oneOnOne->has('employee') ? $this->Html->link($oneOnOne->employee->name, ['controller' => 'Employees', 'action' => 'view', $oneOnOne->employee->id]) : '' ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($oneOnOne->id) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Manager Id') ?></th>
-                    <td><?= $this->Number->format($oneOnOne->manager_id) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Duration') ?></th>
-                    <td><?= $this->Number->format($oneOnOne->duration) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Created') ?></th>
-                    <td><?= h($oneOnOne->created) ?></td>
+                    <td><?= $this->Html->link($oneOnOne->manager->name, ['controller' => 'Employees', 'action' => 'view', $oneOnOne->manager->id]) ?></td>
                 </tr>
                 <tr>
                     <th><?= __('Date') ?></th>
                     <td><?= h($oneOnOne->date) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Duration') ?></th>
+                    <td><?= $this->Number->format($oneOnOne->duration) ?></td>
                 </tr>
             </table>
             <div class="text">
