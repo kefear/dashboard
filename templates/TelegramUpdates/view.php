@@ -29,9 +29,7 @@
             </table>
             <div class="text">
                 <strong><?= __('Message') ?></strong>
-                <blockquote>
-                    <?= $this->Text->autoParagraph(h($telegramUpdate->message)); ?>
-                </blockquote>
+                <pre><?= var_dump(unserialize($telegramUpdate->message)); ?></pre>
             </div>
             <div class="text">
                 <strong><?= __('Channel Post') ?></strong>
