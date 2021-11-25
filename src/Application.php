@@ -109,13 +109,21 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
             // https://book.cakephp.org/4/en/controllers/middleware.html#body-parser-middleware
             ->add(new BodyParserMiddleware())
 
-            ->add(new AuthenticationMiddleware($this))
+            ->add(new AuthenticationMiddleware($this));
 
             // Cross Site Request Forgery (CSRF) Protection Middleware
             // https://book.cakephp.org/4/en/controllers/middleware.html#cross-site-request-forgery-csrf-middleware
-            ->add(new CsrfProtectionMiddleware([
-                'httponly' => true,
-            ]));
+            $csrf = new CsrfProtectionMiddleware();
+            $csrf->skipCheckCallback(function ($request) {
+                // Skip token check for API URLs.
+                if ($request->getParam('controller') === 'TelegramUpdates' 
+                    && $request->getParam('action') === 'receiveUpdate') 
+                {
+                    return true;
+                }
+            });
+
+            $middlewareQueue->add($csrf);
 
         return $middlewareQueue;
     }

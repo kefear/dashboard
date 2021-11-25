@@ -11,6 +11,15 @@ namespace App\Controller;
  */
 class TelegramUpdatesController extends AppController
 {
+
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->loadComponent('RequestHandler');
+        $this->Authentication->allowUnauthenticated(['receiveUpdate']);
+        // $this->Authorization->skipAuthorization();
+    }
+
     /**
      * Index method
      *
@@ -102,5 +111,23 @@ class TelegramUpdatesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    public function receiveUpdate()
+    {
+        $response = [
+            'message' => 'not ok'
+        ];
+        if ($this->request->is('post')) {
+            $update_data = $this->request->getData();
+            $telegramUpdate = $this->TelegramUpdates->newEmptyEntity();
+            $telegramUpdate->update_id = $update_data['update_id'];
+            $telegramUpdate->message = serialize($update_data['message']);
+            if ($this->TelegramUpdates->save($telegramUpdate)) {
+                $response = 'ok';
+            }
+        }
+        $this->viewBuilder()->setOption('serialize', 'response');
+        return $this->RequestHandler->renderAs($this, 'json');
     }
 }
