@@ -7,6 +7,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\Http\Client;
 
 /**
  * TelegramUpdates Model
@@ -85,7 +86,42 @@ class TelegramUpdatesTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-
         return $rules;
+    }
+
+    public function afterSave($event, $entity, $options) 
+    {
+        //  check if update is a new update 
+        //  if so, we need to respond
+        if ($this->respond_to_telegram_message($entity)) {
+            //  respond
+            // $this->delete($entity);
+        }
+    }
+
+    public function respond_to_telegram_message($entity)
+    {
+        //  called to respond to incoming update
+        //  logic: 
+        //  check if incoming message is registration confirmation
+        //  check if user is registered 
+        if (true) {
+            $this->send_message(unserialize($entity->message)['chat']['id'], unserialize($entity->message)['text']);
+        }
+        return true;
+    }
+
+    public function send_message($chat_id, $text)
+    {
+        $method = 'sendMessage';
+        $bot = '2136168689:AAHoRH19oPJ4mUOBP2JPA3iH1kS7XdvMDBA';
+        $query = "?chat_id=$chat_id&text=$text";
+        $http = new Client();
+        $response = $http->get(
+            "https://api.telegram.org/bot$bot/$method$query",  
+            [
+                'headers'   => ['Content-Type' => 'application/json']
+            ]
+        );
     }
 }
