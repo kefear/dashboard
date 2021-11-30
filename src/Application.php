@@ -39,6 +39,10 @@ use Psr\Http\Message\ServerRequestInterface;
 
 use Identifier\Resolver\YandexResolver;
 
+use Cake\I18n\I18n;
+use Cake\I18n\FrozenDate;
+use Cake\I18n\Date;
+
 /**
  * Application setup class.
  *
@@ -56,6 +60,10 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
     {
         // Call parent to load bootstrap from files.
         parent::bootstrap();
+
+        I18n::setLocale('ru_RU');
+		Date::setDefaultLocale('ru-RU');
+		FrozenDate::setDefaultLocale('ru-RU');
 
         if (PHP_SAPI === 'cli') {
             $this->bootstrapCli();
