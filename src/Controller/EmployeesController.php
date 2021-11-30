@@ -115,4 +115,19 @@ class EmployeesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function getList()
+    {
+        $employees = $this->Employees->find('employed')->contain(['Teams']);
+        echo "<table>";
+        foreach ($employees as $e) 
+        {
+            echo "<tr><td>" . ($e->has('team') ? $e->team->name : ' ') . "</td>" .
+
+              '<td>' . $e->last_name . ' ' . $e->first_name . '</td></tr>';
+        }
+        echo "</table>";
+        die;
+
+    }
 }
