@@ -5,8 +5,11 @@
  */
 ?>
 <div class="projects index content">
-    <?= $this->Html->link(__('New Project'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3><?= __('Projects') ?></h3>
+    <div class="button-wrapper">
+        <?= $this->Html->link(__('New Project'), ['action' => 'add'], ['class' => 'button button-outline']) ?>
+        <?= $this->Html->link(__('Active'), ['action' => 'index', 'active'], ['class' => 'button button-clear']) ?>
+    </div>
     <div class="table-responsive">
         <table>
             <thead>

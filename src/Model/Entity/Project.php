@@ -52,7 +52,7 @@ class Project extends Entity
 
     protected $_statuses = [
         1   => 'new',
-        2   => 'in progress',
+        2   => 'active',
         3   => 'blocked',
         4   => 'completed',
         5   => 'abandoned'

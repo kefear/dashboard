@@ -16,13 +16,13 @@ class ProjectsController extends AppController
      *
      * @return \Cake\Http\Response|null|void Renders view
      */
-    public function index()
+    public function index($finder = 'all')
     {
         $this->paginate = [
             'contain'   => ['Managers', 'Teams'],
             'order'     => ['name' => 'ASC']
         ];
-        $projects = $this->paginate($this->Projects);
+        $projects = $this->paginate($this->Projects->find($finder));
 
         $this->set(compact('projects'));
     }

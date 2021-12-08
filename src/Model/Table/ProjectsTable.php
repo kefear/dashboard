@@ -61,6 +61,14 @@ class ProjectsTable extends Table
         ]);
     }
 
+    public $_statuses = [
+        1   => 'new',
+        2   => 'active',
+        3   => 'blocked',
+        4   => 'completed',
+        5   => 'abandoned'
+    ];
+
     /**
      * Default validation rules.
      *
@@ -114,5 +122,10 @@ class ProjectsTable extends Table
         $rules->add($rules->existsIn(['team_id'], 'Teams'), ['errorField' => 'team_id']);
 
         return $rules;
+    }
+
+    public function findActive($query, $options)
+    {
+        return $query->where(['Projects.status_id' => array_flip($this->_statuses)['active']]);
     }
 }
