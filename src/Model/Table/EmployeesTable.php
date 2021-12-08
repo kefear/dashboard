@@ -148,4 +148,13 @@ class EmployeesTable extends Table
     {
         return $query->where([$this->getAlias() . '.status_id' => 1]);
     }
+
+    public function get_managers()
+    {
+        //  get a list of unique ids from teams 
+        //  get those in an alphabetic order
+        //  get rest of employees excluding those in a first list 
+
+        
+    }
 }

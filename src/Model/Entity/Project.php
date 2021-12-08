@@ -35,17 +35,31 @@ class Project extends Entity
      * @var array
      */
     protected $_accessible = [
-        'name' => true,
-        'description' => true,
-        'created' => true,
-        'manager_id' => true,
-        'team_id' => true,
-        'tasks_total' => true,
-        'tasks_done' => true,
-        'date_due' => true,
-        'date_start' => true,
-        'manager' => true,
-        'team' => true,
-        'reports' => true,
+        'name'          => true,
+        'description'   => true,
+        'created'       => true,
+        'manager_id'    => true,
+        'team_id'       => true,
+        'tasks_total'   => true,
+        'tasks_done'    => true,
+        'date_due'      => true,
+        'date_start'    => true,
+        'manager'       => true,
+        'team'          => true,
+        'reports'       => true,
+        'status_id'     => true
     ];
+
+    protected $_statuses = [
+        1   => 'new',
+        2   => 'in progress',
+        3   => 'blocked',
+        4   => 'completed',
+        5   => 'abandoned'
+    ];
+
+    public function _getStatusOptions()
+    {
+        return $this->_statuses;
+    }
 }
