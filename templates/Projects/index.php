@@ -14,28 +14,18 @@
                     <th><?= $this->Paginator->sort('name') ?></th>
                     <th><?= $this->Paginator->sort('manager_id') ?></th>
                     <th><?= $this->Paginator->sort('team_id') ?></th>
-                    <th><?= $this->Paginator->sort('tasks_total') ?></th>
-                    <th><?= $this->Paginator->sort('tasks_done') ?></th>
-                    <th><?= $this->Paginator->sort('date_due') ?></th>
                     <th><?= $this->Paginator->sort('date_start') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th><?= $this->Paginator->sort('date_due') ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($projects as $project): ?>
                 <tr>
-                    <td><?= h($project->name) ?></td>
+                    <td><?= $this->Html->link($project->name, ['action' => 'view', $project->id]) ?></td>
                     <td><?= $project->has('manager') ? $project->manager->name : __('Not assigned') ?></td>
                     <td><?= $project->has('team') ? $this->Html->link($project->team->name, ['controller' => 'Teams', 'action' => 'view', $project->team->id]) : __('Not assigned') ?></td>
-                    <td><?= $this->Number->format($project->tasks_total) ?></td>
-                    <td><?= $this->Number->format($project->tasks_done) ?></td>
-                    <td><?= h($project->date_due) ?></td>
                     <td><?= h($project->date_start) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $project->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $project->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $project->id], ['confirm' => __('Are you sure you want to delete # {0}?', $project->id)]) ?>
-                    </td>
+                    <td><?= h($project->date_due) ?></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
