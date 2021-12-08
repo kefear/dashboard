@@ -15,6 +15,7 @@
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('name') ?></th>
+                    <th><?= $this->Paginator->sort('status_id') ?></th>
                     <th><?= $this->Paginator->sort('manager_id') ?></th>
                     <th><?= $this->Paginator->sort('team_id') ?></th>
                     <th><?= $this->Paginator->sort('date_start') ?></th>
@@ -25,6 +26,7 @@
                 <?php foreach ($projects as $project): ?>
                 <tr>
                     <td><?= $this->Html->link($project->name, ['action' => 'view', $project->id]) ?></td>
+                    <td><?= $project->has('status_id') ? $project->pretty_status : __('Not assigned') ?></td>
                     <td><?= $project->has('manager') ? $project->manager->name : __('Not assigned') ?></td>
                     <td><?= $project->has('team') ? $this->Html->link($project->team->name, ['controller' => 'Teams', 'action' => 'view', $project->team->id]) : __('Not assigned') ?></td>
                     <td><?= h($project->date_start) ?></td>

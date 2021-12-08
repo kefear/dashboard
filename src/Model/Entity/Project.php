@@ -62,4 +62,9 @@ class Project extends Entity
     {
         return $this->_statuses;
     }
+
+    public function _getPrettyStatus()
+    {
+        return $this->_statuses[$this->status_id];
+    }
 }
