@@ -17,12 +17,12 @@ class ProjectsNewFieldStatusId extends AbstractMigration
 
         $this->table('sessions')
             ->changeColumn('created', 'datetime', [
-                'default' => 'NOW()',
+                'default' => null,
                 'limit' => null,
                 'null' => true,
             ])
             ->changeColumn('modified', 'datetime', [
-                'default' => 'NOW()',
+                'default' => null,
                 'limit' => null,
                 'null' => true,
             ])
