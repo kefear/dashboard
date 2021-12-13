@@ -65,7 +65,7 @@ class ProjectsTable extends Table
         1   => 'new',
         2   => 'active',
         3   => 'blocked',
-        4   => 'completed',
+        4   => 'done',
         5   => 'abandoned'
     ];
 
@@ -127,5 +127,10 @@ class ProjectsTable extends Table
     public function findActive($query, $options)
     {
         return $query->where(['Projects.status_id' => array_flip($this->_statuses)['active']]);
+    }
+
+    public function findDone($query, $options)
+    {
+        return $query->where(['Projects.status_id' => array_flip($this->_statuses)['done']]);
     }
 }

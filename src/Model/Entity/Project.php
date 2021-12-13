@@ -54,7 +54,7 @@ class Project extends Entity
         1   => 'new',
         2   => 'active',
         3   => 'blocked',
-        4   => 'completed',
+        4   => 'done',
         5   => 'abandoned'
     ];
 
