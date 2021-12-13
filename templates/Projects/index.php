@@ -8,6 +8,8 @@
     <h3><?= __('Projects') ?></h3>
     <div class="button-wrapper">
         <?= $this->Html->link(__('New Project'), ['action' => 'add'], ['class' => 'button button-outline']) ?>
+        <?= $this->Html->link(__('All'), ['action' => 'index'], ['class' => 'button button-clear']) ?>
+        <?= $this->Html->link(__('Blocked'), ['action' => 'index', 'blocked'], ['class' => 'button button-clear']) ?>
         <?= $this->Html->link(__('Active'), ['action' => 'index', 'active'], ['class' => 'button button-clear']) ?>
         <?= $this->Html->link(__('Done'), ['action' => 'index', 'done'], ['class' => 'button button-clear']) ?>
     </div>

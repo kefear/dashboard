@@ -133,4 +133,9 @@ class ProjectsTable extends Table
     {
         return $query->where(['Projects.status_id' => array_flip($this->_statuses)['done']]);
     }
+
+    public function findBlocked($query, $options)
+    {
+        return $query->where(['Projects.status_id' => array_flip($this->_statuses)['blocked']]);
+    }
 }
