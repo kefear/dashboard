@@ -95,8 +95,9 @@ class UsersTable extends Table
     public function check_if_telegram_user_exists($telegram_name)
     {
         $user = $this->findByTelegram($telegram_name);
-        if (!empty($user))
+        if (!empty($user)) {
             return true;
+        }
         return false;
     }
 }

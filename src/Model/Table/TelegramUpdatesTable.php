@@ -113,9 +113,9 @@ class TelegramUpdatesTable extends Table
         //  if not, return link to ask for registration
         $this->Users = TableRegistry::getTableLocator()->get('Users');
         if ($this->Users->check_if_telegram_user_exists(unserialize($entity->message)['from']['username'])) {
-            $this->send_message(unserialize($entity->message)['chat']['id'], unserialize($entity->message)['text']);
+            $this->send_message(unserialize($entity->message)['chat']['id'], "great");
         } else {
-            $this->send_message(unserialize($entity->message)['chat']['id'], "вам нужно зарегистрироваться");
+            $this->send_message(unserialize($entity->message)['chat']['id'], "вам нужно зарегистрировать: " . unserialize($entity->message)['from']['username']);
         }
         return true;
     }
