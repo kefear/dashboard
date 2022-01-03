@@ -91,4 +91,12 @@ class UsersTable extends Table
     {
         return $query->where(['Users.token' => $options['token']]);
     }
+
+    public function check_if_telegram_user_exists($telegram_name)
+    {
+        $user = $this->findByTelegram($telegram_name);
+        if (!empty($user))
+            return true;
+        return false;
+    }
 }

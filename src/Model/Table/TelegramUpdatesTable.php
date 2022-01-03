@@ -89,6 +89,11 @@ class TelegramUpdatesTable extends Table
         return $rules;
     }
 
+    public function beforeSave($event, $entity, $options) 
+    {
+
+    }
+
     public function afterSave($event, $entity, $options) 
     {
         //  check if update is a new update 
@@ -103,10 +108,13 @@ class TelegramUpdatesTable extends Table
     {
         //  called to respond to incoming update
         //  logic: 
-        //  check if incoming message is registration confirmation
-        //  check if user is registered 
-        if (true) {
+        //  check if user exists
+        //  if not, return link to ask for registration
+        $this->Users = TableRegistry::getTableLocator()->get('Users');
+        if ($this->Users->check_if_telegram_user_exists(unserialize($entity->message)['from']['username'])) {
             $this->send_message(unserialize($entity->message)['chat']['id'], unserialize($entity->message)['text']);
+        } else {
+            $this->send_message(unserialize($entity->message)['chat']['id'], "вам нужно зарегистрироваться");
         }
         return true;
     }
