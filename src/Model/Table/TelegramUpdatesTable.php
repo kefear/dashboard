@@ -8,6 +8,7 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 use Cake\Http\Client;
+use Cake\ORM\TableRegistry;
 
 /**
  * TelegramUpdates Model

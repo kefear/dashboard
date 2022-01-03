@@ -89,8 +89,7 @@ class TelegramUpdatesController extends AppController
             }
             $this->Flash->error(__('The telegram update could not be saved. Please, try again.'));
         }
-        $updates = $this->TelegramUpdates->Updates->find('list', ['limit' => 200]);
-        $this->set(compact('telegramUpdate', 'updates'));
+        $this->set(compact('telegramUpdate'));
     }
 
     /**
