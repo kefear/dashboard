@@ -79,7 +79,7 @@ class YandexResolver implements ResolverInterface
                 return $user;
             }
             //  сценарий, когда пользователя нет в системе, но есть сотрудник с таким же имейлом
-            $user = $users_table->find()->where(['User.email' => $response->getJson()['login']])->first();
+            $user = $users_table->find()->where(['Users.email' => $response->getJson()['login']])->first();
             if (!empty($user)) 
             {
                 $user               = $users_table->newEmptyEntity();
